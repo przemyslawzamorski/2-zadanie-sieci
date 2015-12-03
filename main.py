@@ -30,15 +30,22 @@ for singlebytes in file:
         counter=0               ## resetuje ilosc danych w paczce
         package_number+=1       ##okresla numer paczki
         binary_package_number=bin(package_number).split('b')[1]  ##konwertuje nr paczki na binarny
-        print(binary_package_number)
-
         data=bytearray(package_data)    ##tworzy paczke z danymi
         data.insert(0,int(binary_package_number))  ###dodaje do paczki przedrostek z numerem paczki
         packagelist.append(data)        ##dodaje do listy paczek  paczuszke
-        print('lista paczek',packagelist)
         package_data=[]   ## czysci dane dla kolejnej paczki
-        
 
+if package_data:        ##w przypadku gdy ilość danychw  paczce jest nierówna innym
+    print('zostaly dane')
+    package_number+=1       ##okresla numer paczki
+    binary_package_number=bin(package_number).split('b')[1]  ##konwertuje nr paczki na binarny
+    data=bytearray(package_data)    ##tworzy paczke z danymi
+    data.insert(0,int(binary_package_number))  ###dodaje do paczki przedrostek z numerem paczki
+    packagelist.append(data)
+
+
+
+print('lista paczek')
 print(packagelist)
 
 ##Mieszanie listy paczel
@@ -47,6 +54,14 @@ print(packagelist)
 
 ##Odczytywanie paczki
 
-x=packagelist[1];
+
+
+
+# z=int(str(qw),2) #konwersja nr na decymal paczke
+
+
+
+
+
 
 
