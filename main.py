@@ -1,3 +1,5 @@
+from random import shuffle
+
 __author__ = 'Komputer'
 
 file=[]
@@ -12,7 +14,7 @@ with open('data', 'rb') as f1:
             break
 print(file)
 
-packagelist=[] ##lista paczek
+packagelist=[] ## pusta lista paczek
 
 #paczkowanie
 
@@ -21,12 +23,12 @@ package_number=0
 package_data=[]
 
 for singlebytes in file:
-    print('dupa')
-    if counter==1:             ##określa wielkość paczki | dodaje do listy paczek paczke gotową z danymi
+    if counter==2:             ##określa wielkość paczki | dodaje do listy paczek paczke gotową z danymi
         counter=0               ##i dodanym numerze paczki
         package_number+=1
+        binary_package_number=bin(package_number).split('b')[1]
         data=bytearray(package_data)
-        # data.prepend(package_number)  ###TODO dodać prepend
+        data.insert(0,int(binary_package_number))  ###TODO dodać prepend
         packagelist.append(data)
         package_data=[]
 
@@ -35,7 +37,9 @@ for singlebytes in file:
 
 print('lista')
 print(packagelist)
-
-
+print(packagelist[1])
+##Mieszanie listy paczel
+# shuffle(packagelist)
+# print(packagelist)
 
 
