@@ -1,5 +1,5 @@
 from random import shuffle
-
+from quicksort import *
 __author__ = 'Komputer'
 
 file=[]
@@ -36,23 +36,23 @@ for singlebytes in file:
         package_data=[]   ## czysci dane dla kolejnej paczki
 
 if package_data:        ##w przypadku gdy ilość danychw  paczce jest nierówna innym
-    print('zostaly dane')
     package_number+=1       ##okresla numer paczki
     binary_package_number=bin(package_number).split('b')[1]  ##konwertuje nr paczki na binarny
     data=bytearray(package_data)    ##tworzy paczke z danymi
     data.insert(0,int(binary_package_number))  ###dodaje do paczki przedrostek z numerem paczki
     packagelist.append(data)
 
-
-
 print('lista paczek')
 print(packagelist)
 
-##Mieszanie listy paczel
-# shuffle(packagelist)
-# print(packagelist)
+#Mieszanie listy paczel
+shuffle(packagelist)
+print('Pomieszane paczki')
+print(packagelist)
 
-##Odczytywanie paczki
+##sortowanie paczek
+
+sorted_package_list=quickSort(packagelist)
 
 
 
