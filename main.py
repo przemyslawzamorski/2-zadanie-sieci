@@ -17,29 +17,36 @@ print(file)
 packagelist=[] ## pusta lista paczek
 
 #paczkowanie
-
 counter=0
 package_number=0
 package_data=[]
 
 for singlebytes in file:
-    if counter==2:             ##określa wielkość paczki | dodaje do listy paczek paczke gotową z danymi
-        counter=0               ##i dodanym numerze paczki
-        package_number+=1
-        binary_package_number=bin(package_number).split('b')[1]
-        data=bytearray(package_data)
-        data.insert(0,int(binary_package_number))  ###TODO dodać prepend
-        packagelist.append(data)
-        package_data=[]
 
-    package_data.append(singlebytes)
-    counter+=1
+    package_data.append(singlebytes) #Dodaje bit do  danych pojedynczej paczki
+    counter+=1 #licznik bitow w paczce
 
-print('lista')
+    if counter==2:             ##określa wielkość paczki |
+        counter=0               ## resetuje ilosc danych w paczce
+        package_number+=1       ##okresla numer paczki
+        binary_package_number=bin(package_number).split('b')[1]  ##konwertuje nr paczki na binarny
+        print(binary_package_number)
+
+        data=bytearray(package_data)    ##tworzy paczke z danymi
+        data.insert(0,int(binary_package_number))  ###dodaje do paczki przedrostek z numerem paczki
+        packagelist.append(data)        ##dodaje do listy paczek  paczuszke
+        print('lista paczek',packagelist)
+        package_data=[]   ## czysci dane dla kolejnej paczki
+        
+
 print(packagelist)
-print(packagelist[1])
+
 ##Mieszanie listy paczel
 # shuffle(packagelist)
 # print(packagelist)
+
+##Odczytywanie paczki
+
+x=packagelist[1];
 
 
