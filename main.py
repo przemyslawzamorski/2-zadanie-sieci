@@ -50,9 +50,13 @@ shuffle(packagelist)
 print('Pomieszane paczki')
 print(packagelist)
 
-##sortowanie paczek
-
+#sortowanie paczek
 sorted_package_list=quickSort(packagelist)
+print('posortowane paczki')
+print(sorted_package_list)
+
+
+
 
 
 
