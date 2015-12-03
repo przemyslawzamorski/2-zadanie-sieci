@@ -21,3 +21,4 @@ def quickSort(arr):
 def get_package_number(package):
     binary_number=package[0]
     return int(str(binary_number),2)
+

@@ -26,7 +26,7 @@ for singlebytes in file:
     package_data.append(singlebytes) #Dodaje bit do  danych pojedynczej paczki
     counter+=1 #licznik bitow w paczce
 
-    if counter==2:             ##określa wielkość paczki |
+    if counter==4:             ##określa wielkość paczki |
         counter=0               ## resetuje ilosc danych w paczce
         package_number+=1       ##okresla numer paczki
         binary_package_number=bin(package_number).split('b')[1]  ##konwertuje nr paczki na binarny
@@ -46,26 +46,21 @@ print('lista paczek')
 print(packagelist)
 
 #Mieszanie listy paczel
-shuffle(packagelist)
+shuffle(packagelist)    ##wbudowana funkcja mieszania
 print('Pomieszane paczki')
 print(packagelist)
 
 #sortowanie paczek
-sorted_package_list=quickSort(packagelist)
+sorted_package_list=quickSort(packagelist)   ##sortowanie paczek z wykorzystaniem quicksortu sortowanie po nr paczek
 print('posortowane paczki')
 print(sorted_package_list)
 
 
+raw_data_from_package=[]   ##lista bitów
+for package in sorted_package_list: ## wypakowywanie danych z paczek
+    del package[0]
+    for bytes in package:
+        raw_data_from_package.append(bytes)
 
-
-
-
-
-# z=int(str(qw),2) #konwersja nr na decymal paczke
-
-
-
-
-
-
-
+print('dane z paczek')
+print(raw_data_from_package)
